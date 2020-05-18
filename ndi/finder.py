@@ -46,7 +46,7 @@ class NDIFinder():
     def __del__(self):
         lib.NDIlib_find_destroy(self.pNDI_find)
 
-    def get_sources(self, wait_ms=5000) -> typing.Iterable[NDISource]:
+    def get_sources(self, wait_ms=50) -> typing.Iterable[NDISource]:
         "Returns all sources that can be accessed on the current network"
         changed = lib.NDIlib_find_wait_for_sources(self.pNDI_find, wait_ms)
         if not changed:
